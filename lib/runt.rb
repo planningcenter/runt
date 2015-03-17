@@ -34,7 +34,7 @@
 require 'yaml'
 require 'time'
 require 'date'
-require 'date/format'
+# require 'date/format'
 require "runt/version"
 require "runt/dprecision"
 require "runt/pdate"
