@@ -234,17 +234,17 @@ end
 # somewhere else. :-)
 #
 class Numeric #:nodoc:
-  def microseconds() Float(self  * (10 ** -6)) end unless self.instance_methods.include?('microseconds')
-  def milliseconds() Float(self  * (10 ** -3)) end unless self.instance_methods.include?('milliseconds')
-  def seconds() self end unless self.instance_methods.include?('seconds')
-  def minutes() 60 * seconds end unless self.instance_methods.include?('minutes')
-  def hours() 60 * minutes end unless self.instance_methods.include?('hours')
-  def days() 24 * hours end unless self.instance_methods.include?('days')
-  def weeks() 7 * days end unless self.instance_methods.include?('weeks')
-  def months() 30 * days end unless self.instance_methods.include?('months')
-  def years() 365 * days end unless self.instance_methods.include?('years')
-  def decades() 10 * years end unless self.instance_methods.include?('decades')
   # This causes RDoc to hurl:  
+  def microseconds() Float(self  * (10 ** -6)) end unless method_defined?(:microseconds)
+  def milliseconds() Float(self  * (10 ** -3)) end unless method_defined?(:milliseconds)
+  def seconds() self end unless method_defined?(:seconds)
+  def minutes() 60 * seconds end unless method_defined?(:minutes)
+  def hours() 60 * minutes end unless method_defined?(:hours)
+  def days() 24 * hours end unless method_defined?(:days)
+  def weeks() 7 * days end unless method_defined?(:weeks)
+  def months() 30 * days end unless method_defined?(:months)
+  def years() 365 * days end unless method_defined?(:years)
+  def decades() 10 * years end unless method_defined?(:decades)
   %w[
   microseconds milliseconds seconds minutes hours days weeks months years decades
   ].each{|m| alias_method m.chop, m}
