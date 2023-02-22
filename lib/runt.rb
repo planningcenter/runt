@@ -190,13 +190,13 @@ class Time
 
   attr_accessor :date_precision
   alias_method :old_initialize, :initialize
-  def initialize(*args)
+  def initialize(*args, **kwargs)
     if(args[0].instance_of?(Runt::DPrecision::Precision))
       @precision=args.shift
     else
       @precision=Runt::DPrecision::SEC
     end
-    old_initialize(*args)
+    old_initialize(*args, **kwargs)
   end
 
 #  alias :old_to_yaml :to_yaml
